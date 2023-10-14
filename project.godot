@@ -19,6 +19,10 @@ config/icon="res://icon.svg"
 
 AudioStreamPlayer2d="*res://Scenes/music scene/audio_stream_player_2d.tscn"
 
+[display]
+
+mouse_cursor/custom_image="res://Assets/cursor/beam.png"
+
 [dotnet]
 
 project/assembly_name="Proj 2"
@@ -46,3 +50,4 @@ left_click={
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0
+renderer/rendering_method="gl_compatibility"
