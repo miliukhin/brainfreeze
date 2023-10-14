@@ -1,44 +1,16 @@
+[gd_scene load_steps=14 format=3 uid="uid://bdarf34dakvee"]
 
-[gd_scene load_steps=13 format=3 uid="uid://bdarf34dakvee"]
-[ext_resource type="Texture2D" uid="uid://dooq1fgmryd7o" path="res://Assets/vagon/непрозоре.png" id="1_7mmjb"]
-[ext_resource type="Texture2D" uid="uid://op0agw72bvds" path="res://idk_sprites/enviro.png" id="1_8pmgr"]
+[ext_resource type="Texture2D" uid="uid://bts7f3nbn18ks" path="res://Assets/vagon/vagon.png" id="1_06n4r"]
 [ext_resource type="PackedScene" uid="uid://cmqo05v70grp" path="res://Scenes/Player scene/character_body_2d.tscn" id="1_pxdgw"]
+[ext_resource type="Texture2D" uid="uid://c7j88e3mbs7ar" path="res://Assets/vagon/chair2.png" id="2_ehccp"]
 [ext_resource type="Script" path="res://Scenes/Player scene/character_body_2d.gd" id="2_inlgh"]
-[ext_resource type="PackedScene" uid="uid://cgdjdj8xpxy8a" path="res://UI/control.tscn" id="5_0bmvn"]
-[ext_resource type="Texture2D" uid="uid://bwqwdyq76c5xk" path="res://Assets/pixil-frame-0(1).png" id="5_s4f68"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_s4hv2"]
-atlas = ExtResource("1_8pmgr")
-region = Rect2(0, 0, 100, 70)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_dqo50"]
-atlas = ExtResource("1_8pmgr")
-region = Rect2(100, 0, 100, 70)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_dds6a"]
-atlas = ExtResource("1_8pmgr")
-region = Rect2(200, 0, 100, 70)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_ues1h"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_s4hv2")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_dqo50")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_dds6a")
-}],
-"loop": true,
-"name": &"view",
-"speed": 5.0
-}]
+[ext_resource type="Script" path="res://Scenes/MainScene/Transition.gd" id="2_nc4u3"]
+[ext_resource type="Texture2D" uid="uid://bkpiekwrd3vft" path="res://Assets/vagon/chairmerged.png" id="3_ytwcg"]
+[ext_resource type="Texture2D" uid="uid://bwegu02p4vd10" path="res://Assets/vagon/Sprite-00154.png" id="4_li8hs"]
+[ext_resource type="Texture2D" uid="uid://8d1a8ymy2cmc" path="res://Assets/vagon/Sprite-001crowd54.png" id="7_fysvy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_acf4q"]
-size = Vector2(310.8, 6)
-
+size = Vector2(310.8, 7.3)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_365ri"]
 size = Vector2(20, 63.8)
@@ -110,72 +82,58 @@ _data = {
 "fade out": SubResource("Animation_pwvws")
 }
 
-
 [node name="Node2D" type="Node2D"]
-
-[node name="AnimatedSprite2D3" type="AnimatedSprite2D" parent="."]
-position = Vector2(940, -281)
-scale = Vector2(9, 9)
-sprite_frames = SubResource("SpriteFrames_ues1h")
-animation = &"view"
-autoplay = "view"
-frame_progress = 0.615997
-
-[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="."]
-position = Vector2(167, -287)
-scale = Vector2(9, 9)
-sprite_frames = SubResource("SpriteFrames_ues1h")
-animation = &"view"
-autoplay = "view"
-frame_progress = 0.423413
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(-554, -276)
-scale = Vector2(9, 9)
-sprite_frames = SubResource("SpriteFrames_ues1h")
-animation = &"view"
-autoplay = "view"
-frame_progress = 0.235655
 
 [node name="Vagon" type="Sprite2D" parent="."]
 position = Vector2(198, -233)
 scale = Vector2(10, 10)
-texture = ExtResource("1_7mmjb")
+texture = ExtResource("1_06n4r")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Vagon"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Vagon/StaticBody2D"]
-position = Vector2(-6.2, 44.1)
-
+position = Vector2(-6.2, 43.45)
 shape = SubResource("RectangleShape2D_acf4q")
 
-[node name="Pixil-frame-0(1)" type="Sprite2D" parent="."]
-position = Vector2(-164, -99)
-scale = Vector2(10, 10)
-texture = ExtResource("5_s4f68")
+[node name="Chair2" type="Sprite2D" parent="Vagon"]
+position = Vector2(99.5, 22.1)
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("2_ehccp")
 
-[node name="Area2D" type="Area2D" parent="Pixil-frame-0(1)"]
+[node name="Chairmerged" type="Sprite2D" parent="Vagon"]
+position = Vector2(35.4, 21.7)
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("3_ytwcg")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Pixil-frame-0(1)/Area2D"]
-position = Vector2(-3.05176e-05, 2.1)
-shape = SubResource("RectangleShape2D_rtywq")
+[node name="Chairmerged2" type="Sprite2D" parent="Vagon"]
+position = Vector2(-36.9, 21.7)
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("3_ytwcg")
 
-[node name="CharacterBody2D" parent="." node_paths=PackedStringArray("player") instance=ExtResource("1_pxdgw")]
-position = Vector2(-725, -1)
+[node name="Chair3" type="Sprite2D" parent="Vagon"]
+position = Vector2(-100.4, 21.9)
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("2_ehccp")
+flip_h = true
 
+[node name="Sprite-00154" type="Sprite2D" parent="Vagon"]
+position = Vector2(-20.3, 19.4)
+scale = Vector2(0.777143, 0.777143)
+texture = ExtResource("4_li8hs")
+
+[node name="CharacterBody2D" parent="." instance=ExtResource("1_pxdgw")]
+position = Vector2(-1058, -25)
+collision_layer = 3
 script = ExtResource("2_inlgh")
-player = NodePath(".")
 
 [node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
-offset = Vector2(0, -270)
-zoom = Vector2(0.685, 0.685)
+offset = Vector2(0, -280)
+zoom = Vector2(0.7, 0.7)
 
-[node name="Control" parent="CharacterBody2D/Camera2D" instance=ExtResource("5_0bmvn")]
-offset_left = -851.0
-offset_top = -445.0
-offset_right = 722.0
-offset_bottom = -445.0
-
+[node name="Sprite-001Crowd54" type="Sprite2D" parent="."]
+position = Vector2(423, -79)
+scale = Vector2(9.01666, 9.01666)
+texture = ExtResource("7_fysvy")
 
 [node name="Transition" type="Area2D" parent="."]
 position = Vector2(198, -233)
@@ -185,7 +143,7 @@ collision_mask = 2
 script = ExtResource("2_nc4u3")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Transition"]
-position = Vector2(161, 5.9)
+position = Vector2(142.3, 5.3)
 shape = SubResource("RectangleShape2D_365ri")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Transition"]
@@ -196,9 +154,11 @@ libraries = {
 [node name="Control" type="Control" parent="Transition"]
 layout_mode = 3
 anchors_preset = 0
-offset_top = -72.0
-offset_right = 327.0
-offset_bottom = 57.0
+offset_left = 0.300003
+offset_top = -81.0
+offset_right = 327.3
+offset_bottom = 48.0
+metadata/_edit_use_anchors_ = true
 
 [node name="ColorRect" type="ColorRect" parent="Transition/Control"]
 visible = false
@@ -210,7 +170,4 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 0)
 
-[connection signal="input_event" from="Grandma2/Area2D" to="CharacterBody2D" method="_on_area_2d_input_event"]
-[connection signal="mouse_entered" from="Grandma2/Area2D" to="CharacterBody2D" method="_on_area_2d_mouse_entered"]
-[connection signal="mouse_exited" from="Grandma2/Area2D" to="CharacterBody2D" method="_on_area_2d_mouse_exited"]
 [connection signal="body_entered" from="Transition" to="Transition" method="_on_body_entered"]

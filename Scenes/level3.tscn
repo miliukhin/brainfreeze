@@ -1,0 +1,68 @@
+[gd_scene load_steps=9 format=3 uid="uid://rsyfy2fq3d0o"]
+
+[ext_resource type="Texture2D" uid="uid://dnd44mnkjuh0u" path="res://Assets/vagon/vagon3.png" id="1_eyftq"]
+[ext_resource type="Texture2D" uid="uid://c7j88e3mbs7ar" path="res://Assets/vagon/chair2.png" id="2_hawt1"]
+[ext_resource type="Texture2D" uid="uid://bkpiekwrd3vft" path="res://Assets/vagon/chairmerged.png" id="3_01gae"]
+[ext_resource type="Texture2D" uid="uid://8d1a8ymy2cmc" path="res://Assets/vagon/Sprite-001crowd54.png" id="4_prp40"]
+[ext_resource type="Texture2D" uid="uid://bwegu02p4vd10" path="res://Assets/vagon/Sprite-00154.png" id="5_tiotq"]
+[ext_resource type="PackedScene" uid="uid://cmqo05v70grp" path="res://Scenes/Player scene/character_body_2d.tscn" id="6_h2dmg"]
+[ext_resource type="Script" path="res://Scenes/Player scene/character_body_2d.gd" id="7_rvhba"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g3yc4"]
+size = Vector2(318.39, 7.3)
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Vagon3" type="Sprite2D" parent="."]
+position = Vector2(94.4999, -227)
+scale = Vector2(11.0344, 8.54618)
+texture = ExtResource("1_eyftq")
+
+[node name="Chair2" type="Sprite2D" parent="Vagon3"]
+position = Vector2(100.943, 24.3125)
+scale = Vector2(0.717502, 0.761549)
+texture = ExtResource("2_hawt1")
+
+[node name="Chairmerged" type="Sprite2D" parent="Vagon3"]
+position = Vector2(39.6208, 23.9063)
+scale = Vector2(0.717502, 0.761549)
+texture = ExtResource("3_01gae")
+
+[node name="Chairmerged2" type="Sprite2D" parent="Vagon3"]
+position = Vector2(-29.5464, 23.9063)
+scale = Vector2(0.717502, 0.761549)
+texture = ExtResource("3_01gae")
+
+[node name="Chair3" type="Sprite2D" parent="Vagon3"]
+position = Vector2(-90.2949, 24.1094)
+scale = Vector2(0.717502, 0.761549)
+texture = ExtResource("2_hawt1")
+flip_h = true
+
+[node name="Sprite-001Crowd54" type="Sprite2D" parent="Vagon3"]
+position = Vector2(79.343, 27.0296)
+scale = Vector2(0.47201, 0.541177)
+texture = ExtResource("4_prp40")
+
+[node name="Sprite-00154" type="Sprite2D" parent="Vagon3"]
+position = Vector2(-35.6613, 21.2961)
+scale = Vector2(0.743469, 0.789109)
+texture = ExtResource("5_tiotq")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(158, -211)
+scale = Vector2(10.5563, 8.67778)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-7.6258, 43.45)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_g3yc4")
+
+[node name="CharacterBody2D" parent="." instance=ExtResource("6_h2dmg")]
+position = Vector2(-1042, -41)
+collision_layer = 3
+script = ExtResource("7_rvhba")
+
+[node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
+offset = Vector2(0, -280)
+zoom = Vector2(0.7, 0.7)
