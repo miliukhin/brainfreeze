@@ -1,7 +1,13 @@
-[gd_scene load_steps=7 format=3 uid="uid://cmqo05v70grp"]
+
+[gd_scene load_steps=13 format=3 uid="uid://cmqo05v70grp"]
 
 [ext_resource type="Texture2D" uid="uid://b3nq80rio1g8t" path="res://Assets/babkaw1.png" id="1_fruf2"]
 [ext_resource type="Texture2D" uid="uid://dlcpcaul32gq7" path="res://Assets/babka.png" id="1_sq1n3"]
+[ext_resource type="Texture2D" uid="uid://c178m6ua4aeav" path="res://Assets/inventory/hummer.png" id="3_mk0hu"]
+[ext_resource type="Texture2D" uid="uid://cpkkuxmygdsoh" path="res://Assets/inventory/lighter.png" id="4_l7myh"]
+[ext_resource type="Texture2D" uid="uid://dpvn8yujryhjj" path="res://Assets/inventory/sickle.png" id="5_pl5d1"]
+[ext_resource type="Texture2D" uid="uid://q0qlr6ylhdng" path="res://Assets/inventory/plastick strick.png" id="6_6bo7o"]
+[ext_resource type="Script" path="res://Scenes/Player scene/Inst.gd" id="7_g5fwy"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2vvv7"]
 atlas = ExtResource("1_sq1n3")
@@ -36,6 +42,26 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3wrel"]
 size = Vector2(323, 323)
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_yfwfa"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_mk0hu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_l7myh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_pl5d1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_6bo7o")
+}],
+"loop": true,
+"name": &"inv",
+"speed": 5.0
+}]
+
 [node name="CharacterBody2D" type="CharacterBody2D"]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -48,3 +74,16 @@ frame_progress = 0.47027
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(1, 2)
 shape = SubResource("RectangleShape2D_3wrel")
+
+[node name="Inst" type="AnimatedSprite2D" parent="."]
+position = Vector2(111, 102)
+rotation = 0.806342
+scale = Vector2(9, 9)
+sprite_frames = SubResource("SpriteFrames_yfwfa")
+animation = &"inv"
+frame = 1
+frame_progress = 0.81033
+script = ExtResource("7_g5fwy")
+left_position = Vector2(-90, 100)
+right_position = Vector2(110, 100)
+
