@@ -1,0 +1,44 @@
+[gd_scene load_steps=7 format=3 uid="uid://bdarf34dakvee"]
+
+[ext_resource type="PackedScene" uid="uid://cmqo05v70grp" path="res://Scenes/Player scene/character_body_2d.tscn" id="1_pxdgw"]
+[ext_resource type="Script" path="res://Scenes/Player scene/character_body_2d.gd" id="2_inlgh"]
+[ext_resource type="Texture2D" uid="uid://b3k2vft4iuuf" path="res://Assets/grandma.png" id="3_cxdal"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_kl6xi"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_exrqf"]
+size = Vector2(319.592, 176)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rtywq"]
+size = Vector2(149, 133.5)
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Grandma" type="Sprite2D" parent="."]
+position = Vector2(-43, 309)
+scale = Vector2(6.03894, 1)
+texture = ExtResource("3_cxdal")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Grandma"]
+physics_material_override = SubResource("PhysicsMaterial_kl6xi")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Grandma/StaticBody2D"]
+position = Vector2(0.993546, 78)
+shape = SubResource("RectangleShape2D_exrqf")
+
+[node name="CharacterBody2D" parent="." instance=ExtResource("1_pxdgw")]
+position = Vector2(4, -60)
+script = ExtResource("2_inlgh")
+
+[node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
+zoom = Vector2(0.625, 0.625)
+
+[node name="Grandma2" type="Sprite2D" parent="."]
+position = Vector2(618, -223)
+texture = ExtResource("3_cxdal")
+
+[node name="Area2D" type="Area2D" parent="Grandma2"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Grandma2/Area2D"]
+position = Vector2(82.5, 74.75)
+shape = SubResource("RectangleShape2D_rtywq")
