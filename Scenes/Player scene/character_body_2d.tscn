@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://cmqo05v70grp"]
+[gd_scene load_steps=14 format=3 uid="uid://cmqo05v70grp"]
 
 [ext_resource type="Texture2D" uid="uid://b3nq80rio1g8t" path="res://Assets/babkaw1.png" id="1_fruf2"]
 [ext_resource type="Texture2D" uid="uid://dlcpcaul32gq7" path="res://Assets/babka.png" id="1_sq1n3"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://dpvn8yujryhjj" path="res://Assets/inventory/sickle.png" id="5_pl5d1"]
 [ext_resource type="Texture2D" uid="uid://q0qlr6ylhdng" path="res://Assets/inventory/plastick strick.png" id="6_6bo7o"]
 [ext_resource type="Script" path="res://Scenes/Player scene/Inst.gd" id="7_g5fwy"]
+[ext_resource type="PackedScene" uid="uid://cgdjdj8xpxy8a" path="res://UI/control.tscn" id="8_5j7ia"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2vvv7"]
 atlas = ExtResource("1_sq1n3")
@@ -86,3 +87,9 @@ script = ExtResource("7_g5fwy")
 left_position = Vector2(-145, 145)
 right_position = Vector2(110, 145)
 right_rotaion = 46.2
+
+[node name="Control" parent="." instance=ExtResource("8_5j7ia")]
+offset_left = -830.0
+offset_top = -434.0
+offset_right = -830.0
+offset_bottom = -434.0

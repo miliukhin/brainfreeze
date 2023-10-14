@@ -1,10 +1,9 @@
-[gd_scene load_steps=13 format=3 uid="uid://bdarf34dakvee"]
+[gd_scene load_steps=12 format=3 uid="uid://bdarf34dakvee"]
 
 [ext_resource type="Texture2D" uid="uid://dooq1fgmryd7o" path="res://Assets/vagon/непрозоре.png" id="1_7mmjb"]
 [ext_resource type="Texture2D" uid="uid://op0agw72bvds" path="res://idk_sprites/enviro.png" id="1_8pmgr"]
 [ext_resource type="PackedScene" uid="uid://cmqo05v70grp" path="res://Scenes/Player scene/character_body_2d.tscn" id="1_pxdgw"]
 [ext_resource type="Script" path="res://Scenes/Player scene/character_body_2d.gd" id="2_inlgh"]
-[ext_resource type="PackedScene" uid="uid://cgdjdj8xpxy8a" path="res://UI/control.tscn" id="5_0bmvn"]
 [ext_resource type="Texture2D" uid="uid://bwqwdyq76c5xk" path="res://Assets/pixil-frame-0(1).png" id="5_s4f68"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_s4hv2"]
@@ -98,12 +97,8 @@ player = NodePath(".")
 [node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
 offset = Vector2(0, -270)
 zoom = Vector2(0.685, 0.685)
-
-[node name="Control" parent="CharacterBody2D/Camera2D" instance=ExtResource("5_0bmvn")]
-offset_left = -851.0
-offset_top = -445.0
-offset_right = 722.0
-offset_bottom = -445.0
+limit_left = -1300
+limit_right = 1680
 
 [connection signal="input_event" from="Pixil-frame-0(1)/Area2D" to="CharacterBody2D" method="_on_area_2d_input_event"]
 [connection signal="mouse_entered" from="Pixil-frame-0(1)/Area2D" to="CharacterBody2D" method="_on_area_2d_mouse_entered"]
