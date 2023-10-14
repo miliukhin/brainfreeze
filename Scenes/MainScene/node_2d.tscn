@@ -42,3 +42,7 @@ texture = ExtResource("3_cxdal")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Grandma2/Area2D"]
 position = Vector2(82.5, 74.75)
 shape = SubResource("RectangleShape2D_rtywq")
+
+[connection signal="input_event" from="Grandma2/Area2D" to="CharacterBody2D" method="_on_area_2d_input_event"]
+[connection signal="mouse_entered" from="Grandma2/Area2D" to="CharacterBody2D" method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="Grandma2/Area2D" to="CharacterBody2D" method="_on_area_2d_mouse_exited"]

@@ -34,3 +34,22 @@ func _physics_process(delta):
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 
 	move_and_slide()
+
+
+
+func _on_area_2d_mouse_entered():
+	if Input.is_action_pressed("left_click"):
+		print("meow")
+	pass # Replace with function body.
+
+
+func _on_area_2d_input_event(viewport, event, shape_idx):
+	var n = 0
+	if Input.is_action_just_pressed("left_click"):
+		print("meow")
+	pass # Replace with function body.
+
+
+func _on_area_2d_mouse_exited():
+	print("meow left")
+	pass # Replace with function body.
