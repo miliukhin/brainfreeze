@@ -15,6 +15,10 @@ run/main_scene="res://Scenes/MainScene/node_2d.tscn"
 config/features=PackedStringArray("4.1", "C#", "Forward Plus")
 config/icon="res://icon.svg"
 
+[autoload]
+
+AudioStreamPlayer2d="*res://Scenes/music scene/audio_stream_player_2d.tscn"
+
 [dotnet]
 
 project/assembly_name="Proj 2"
