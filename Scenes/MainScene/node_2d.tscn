@@ -1,5 +1,5 @@
-
 [gd_scene load_steps=13 format=3 uid="uid://bdarf34dakvee"]
+
 [ext_resource type="Texture2D" uid="uid://dooq1fgmryd7o" path="res://Assets/vagon/непрозоре.png" id="1_7mmjb"]
 [ext_resource type="Texture2D" uid="uid://op0agw72bvds" path="res://idk_sprites/enviro.png" id="1_8pmgr"]
 [ext_resource type="PackedScene" uid="uid://cmqo05v70grp" path="res://Scenes/Player scene/character_body_2d.tscn" id="1_pxdgw"]
@@ -39,77 +39,8 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_acf4q"]
 size = Vector2(310.8, 6)
 
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_365ri"]
-size = Vector2(20, 63.8)
-
-[sub_resource type="Animation" id="Animation_3ppu3"]
-resource_name = "transition"
-tracks/0/type = "method"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Control/ColorRect")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0.1),
-"transitions": PackedFloat32Array(1),
-"values": [{
-"args": [],
-"method": &"show"
-}]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Control/ColorRect:color")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
-}
-
-[sub_resource type="Animation" id="Animation_pwvws"]
-resource_name = "fade out"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Control/ColorRect:color")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
-}
-tracks/1/type = "method"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Control/ColorRect")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"values": [{
-"args": [],
-"method": &"show"
-}, {
-"args": [],
-"method": &"hide"
-}]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_jnbek"]
-_data = {
-"fade in": SubResource("Animation_3ppu3"),
-"fade out": SubResource("Animation_pwvws")
-}
-
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rtywq"]
+size = Vector2(16, 11.85)
 
 [node name="Node2D" type="Node2D"]
 
@@ -146,7 +77,6 @@ texture = ExtResource("1_7mmjb")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Vagon/StaticBody2D"]
 position = Vector2(-6.2, 44.1)
-
 shape = SubResource("RectangleShape2D_acf4q")
 
 [node name="Pixil-frame-0(1)" type="Sprite2D" parent="."]
@@ -162,7 +92,6 @@ shape = SubResource("RectangleShape2D_rtywq")
 
 [node name="CharacterBody2D" parent="." node_paths=PackedStringArray("player") instance=ExtResource("1_pxdgw")]
 position = Vector2(-725, -1)
-
 script = ExtResource("2_inlgh")
 player = NodePath(".")
 
@@ -176,41 +105,6 @@ offset_top = -445.0
 offset_right = 722.0
 offset_bottom = -445.0
 
-
-[node name="Transition" type="Area2D" parent="."]
-position = Vector2(198, -233)
-scale = Vector2(10, 10)
-collision_layer = 2
-collision_mask = 2
-script = ExtResource("2_nc4u3")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Transition"]
-position = Vector2(161, 5.9)
-shape = SubResource("RectangleShape2D_365ri")
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Transition"]
-libraries = {
-"": SubResource("AnimationLibrary_jnbek")
-}
-
-[node name="Control" type="Control" parent="Transition"]
-layout_mode = 3
-anchors_preset = 0
-offset_top = -72.0
-offset_right = 327.0
-offset_bottom = 57.0
-
-[node name="ColorRect" type="ColorRect" parent="Transition/Control"]
-visible = false
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0, 0, 0, 0)
-
-[connection signal="input_event" from="Grandma2/Area2D" to="CharacterBody2D" method="_on_area_2d_input_event"]
-[connection signal="mouse_entered" from="Grandma2/Area2D" to="CharacterBody2D" method="_on_area_2d_mouse_entered"]
-[connection signal="mouse_exited" from="Grandma2/Area2D" to="CharacterBody2D" method="_on_area_2d_mouse_exited"]
-[connection signal="body_entered" from="Transition" to="Transition" method="_on_body_entered"]
+[connection signal="input_event" from="Pixil-frame-0(1)/Area2D" to="CharacterBody2D" method="_on_area_2d_input_event"]
+[connection signal="mouse_entered" from="Pixil-frame-0(1)/Area2D" to="CharacterBody2D" method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="Pixil-frame-0(1)/Area2D" to="CharacterBody2D" method="_on_area_2d_mouse_exited"]
