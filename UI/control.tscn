@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://cgdjdj8xpxy8a"]
+
+[ext_resource type="Texture2D" uid="uid://cxmegb2xmiorp" path="res://Assets/Inventory/circ.png" id="1_fyy84"]
+[ext_resource type="Texture2D" uid="uid://c3pql4632x7ca" path="res://Assets/Inventory/nums.png" id="2_8jlay"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 3.0
+offset_bottom = 3.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Circ" type="Sprite2D" parent="."]
+position = Vector2(313, 547)
+scale = Vector2(4, 4)
+texture = ExtResource("1_fyy84")
+
+[node name="Nums" type="Sprite2D" parent="."]
+position = Vector2(312, 547)
+scale = Vector2(4, 4)
+texture = ExtResource("2_8jlay")
