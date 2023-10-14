@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://cmqo05v70grp"]
+
+[ext_resource type="Texture2D" uid="uid://dlcpcaul32gq7" path="res://Assets/babka.png" id="1_sq1n3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3wrel"]
+size = Vector2(323, 323)
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(2, 2)
+scale = Vector2(9.9375, 9.9375)
+texture = ExtResource("1_sq1n3")
+hframes = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, -0.5)
+shape = SubResource("RectangleShape2D_3wrel")
