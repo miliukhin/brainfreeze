@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dff3oiy64dodp"
-path="res://.godot/imported/icons8-undertale-heart-50.png-a85e782086ce079c9d75bef5765798f7.ctex"
+uid="uid://dy0haajflv21q"
+path="res://.godot/imported/window2.png-f983f4af97c4bb70e88b04971f045064.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/cursor/icons8-undertale-heart-50.png"
-dest_files=["res://.godot/imported/icons8-undertale-heart-50.png-a85e782086ce079c9d75bef5765798f7.ctex"]
+source_file="res://idk_sprites/window2.png"
+dest_files=["res://.godot/imported/window2.png-f983f4af97c4bb70e88b04971f045064.ctex"]
 
 [params]
 
