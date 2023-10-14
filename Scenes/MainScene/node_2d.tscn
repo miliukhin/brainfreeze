@@ -1,3 +1,4 @@
+
 [gd_scene load_steps=11 format=3 uid="uid://bdarf34dakvee"]
 
 [ext_resource type="Texture2D" uid="uid://bts7f3nbn18ks" path="res://Assets/vagon/vagon.png" id="1_06n4r"]
@@ -144,3 +145,5 @@ color = Color(0, 0, 0, 0)
 [connection signal="mouse_entered" from="Grandma2/Area2D" to="CharacterBody2D" method="_on_area_2d_mouse_entered"]
 [connection signal="mouse_exited" from="Grandma2/Area2D" to="CharacterBody2D" method="_on_area_2d_mouse_exited"]
 [connection signal="body_entered" from="Transition" to="Transition" method="_on_body_entered"]
+=======
+
