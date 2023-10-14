@@ -1,10 +1,40 @@
-[gd_scene load_steps=8 format=3 uid="uid://bdarf34dakvee"]
+[gd_scene load_steps=13 format=3 uid="uid://bdarf34dakvee"]
 
 [ext_resource type="Texture2D" uid="uid://dooq1fgmryd7o" path="res://Assets/vagon/непрозоре.png" id="1_7mmjb"]
+[ext_resource type="Texture2D" uid="uid://op0agw72bvds" path="res://idk_sprites/enviro.png" id="1_8pmgr"]
 [ext_resource type="PackedScene" uid="uid://cmqo05v70grp" path="res://Scenes/Player scene/character_body_2d.tscn" id="1_pxdgw"]
 [ext_resource type="Script" path="res://Scenes/Player scene/character_body_2d.gd" id="2_inlgh"]
 [ext_resource type="PackedScene" uid="uid://cgdjdj8xpxy8a" path="res://UI/control.tscn" id="5_0bmvn"]
 [ext_resource type="Texture2D" uid="uid://bwqwdyq76c5xk" path="res://Assets/pixil-frame-0(1).png" id="5_s4f68"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s4hv2"]
+atlas = ExtResource("1_8pmgr")
+region = Rect2(0, 0, 100, 70)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dqo50"]
+atlas = ExtResource("1_8pmgr")
+region = Rect2(100, 0, 100, 70)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dds6a"]
+atlas = ExtResource("1_8pmgr")
+region = Rect2(200, 0, 100, 70)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ues1h"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s4hv2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dqo50")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dds6a")
+}],
+"loop": true,
+"name": &"view",
+"speed": 5.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_acf4q"]
 size = Vector2(310.8, 6)
@@ -13,6 +43,30 @@ size = Vector2(310.8, 6)
 size = Vector2(16, 11.85)
 
 [node name="Node2D" type="Node2D"]
+
+[node name="AnimatedSprite2D3" type="AnimatedSprite2D" parent="."]
+position = Vector2(940, -281)
+scale = Vector2(9, 9)
+sprite_frames = SubResource("SpriteFrames_ues1h")
+animation = &"view"
+autoplay = "view"
+frame_progress = 0.615997
+
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="."]
+position = Vector2(167, -287)
+scale = Vector2(9, 9)
+sprite_frames = SubResource("SpriteFrames_ues1h")
+animation = &"view"
+autoplay = "view"
+frame_progress = 0.423413
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-554, -276)
+scale = Vector2(9, 9)
+sprite_frames = SubResource("SpriteFrames_ues1h")
+animation = &"view"
+autoplay = "view"
+frame_progress = 0.235655
 
 [node name="Vagon" type="Sprite2D" parent="."]
 position = Vector2(198, -233)
@@ -23,7 +77,6 @@ texture = ExtResource("1_7mmjb")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Vagon/StaticBody2D"]
 position = Vector2(-6.2, 44.1)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_acf4q")
 
 [node name="Pixil-frame-0(1)" type="Sprite2D" parent="."]
@@ -47,10 +100,10 @@ offset = Vector2(0, -270)
 zoom = Vector2(0.685, 0.685)
 
 [node name="Control" parent="CharacterBody2D/Camera2D" instance=ExtResource("5_0bmvn")]
-offset_left = 725.0
-offset_top = 4.0
-offset_right = 725.0
-offset_bottom = 4.0
+offset_left = -851.0
+offset_top = -445.0
+offset_right = 722.0
+offset_bottom = -445.0
 
 [connection signal="input_event" from="Pixil-frame-0(1)/Area2D" to="CharacterBody2D" method="_on_area_2d_input_event"]
 [connection signal="mouse_entered" from="Pixil-frame-0(1)/Area2D" to="CharacterBody2D" method="_on_area_2d_mouse_entered"]

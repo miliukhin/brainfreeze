@@ -1,7 +1,14 @@
-[gd_scene load_steps=3 format=3 uid="uid://cgdjdj8xpxy8a"]
+[gd_scene load_steps=9 format=3 uid="uid://cgdjdj8xpxy8a"]
 
 [ext_resource type="Texture2D" uid="uid://cxmegb2xmiorp" path="res://Assets/Inventory/circ.png" id="1_fyy84"]
+[ext_resource type="Script" path="res://UI/control.gd" id="1_p01so"]
 [ext_resource type="Texture2D" uid="uid://c3pql4632x7ca" path="res://Assets/Inventory/nums.png" id="2_8jlay"]
+[ext_resource type="Texture2D" uid="uid://c178m6ua4aeav" path="res://Assets/inventory/hummer.png" id="4_x7f47"]
+[ext_resource type="Texture2D" uid="uid://cpkkuxmygdsoh" path="res://Assets/inventory/lighter.png" id="5_sda3p"]
+[ext_resource type="Texture2D" uid="uid://dpvn8yujryhjj" path="res://Assets/inventory/sickle.png" id="6_xxpln"]
+[ext_resource type="Texture2D" uid="uid://q0qlr6ylhdng" path="res://Assets/inventory/plastick strick.png" id="7_ujp7w"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_x6c38"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -12,13 +19,66 @@ offset_top = 3.0
 offset_bottom = 3.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_p01so")
 
 [node name="Circ" type="Sprite2D" parent="."]
-position = Vector2(313, 547)
-scale = Vector2(4, 4)
+position = Vector2(363, 551)
+scale = Vector2(7, 7)
 texture = ExtResource("1_fyy84")
 
 [node name="Nums" type="Sprite2D" parent="."]
-position = Vector2(312, 547)
-scale = Vector2(4, 4)
+position = Vector2(362, 551)
+scale = Vector2(7, 7)
 texture = ExtResource("2_8jlay")
+
+[node name="hummer" type="Sprite2D" parent="."]
+position = Vector2(78, 547)
+scale = Vector2(4.5, 4.5)
+texture = ExtResource("4_x7f47")
+
+[node name="Area2D" type="Area2D" parent="hummer"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hummer/Area2D"]
+shape = SubResource("CircleShape2D_x6c38")
+
+[node name="lighter" type="Sprite2D" parent="."]
+position = Vector2(215, 545)
+scale = Vector2(4.5, 4.5)
+texture = ExtResource("5_sda3p")
+
+[node name="Area2D" type="Area2D" parent="lighter"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="lighter/Area2D"]
+position = Vector2(-0.666664, 0.666679)
+shape = SubResource("CircleShape2D_x6c38")
+
+[node name="sickle" type="Sprite2D" parent="."]
+position = Vector2(355, 549)
+scale = Vector2(4.5, 4.5)
+texture = ExtResource("6_xxpln")
+
+[node name="Area2D" type="Area2D" parent="sickle"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="sickle/Area2D"]
+position = Vector2(-0.666672, -0.444435)
+shape = SubResource("CircleShape2D_x6c38")
+
+[node name="plastick stick" type="Sprite2D" parent="."]
+position = Vector2(495, 545)
+scale = Vector2(4.5, 4.5)
+texture = ExtResource("7_ujp7w")
+
+[node name="Area2D" type="Area2D" parent="plastick stick"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="plastick stick/Area2D"]
+position = Vector2(-2, 0.222237)
+shape = SubResource("CircleShape2D_x6c38")
+
+[connection signal="mouse_entered" from="hummer/Area2D" to="." method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="hummer/Area2D" to="." method="_on_area_2d_mouse_exited"]
+[connection signal="mouse_entered" from="lighter/Area2D" to="." method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="lighter/Area2D" to="." method="_on_area_2d_mouse_exited"]
+[connection signal="mouse_entered" from="sickle/Area2D" to="." method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="sickle/Area2D" to="." method="_on_area_2d_mouse_exited"]
+[connection signal="mouse_entered" from="plastick stick/Area2D" to="." method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="plastick stick/Area2D" to="." method="_on_area_2d_mouse_exited"]
