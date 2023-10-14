@@ -45,10 +45,12 @@ func update_facing_direction():
 	if velocity.x > 0:
 		animated_sprite.flip_h = false
 		inst.position = inst.right_position
+		inst.set_rotation(-200)
 		inst.flip_h = false
 	elif velocity.x < 0:
 		inst.flip_h = true
 		inst.position = inst.left_position
+		inst.set_rotation(200)
 		animated_sprite.flip_h = true
 		
 func invetory():

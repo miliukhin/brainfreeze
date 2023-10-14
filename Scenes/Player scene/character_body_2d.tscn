@@ -75,13 +75,14 @@ position = Vector2(1, 2)
 shape = SubResource("RectangleShape2D_3wrel")
 
 [node name="Inst" type="AnimatedSprite2D" parent="."]
-position = Vector2(111, 102)
-rotation = 0.806342
+position = Vector2(145, 131)
+rotation = 0.802851
 scale = Vector2(9, 9)
 sprite_frames = SubResource("SpriteFrames_yfwfa")
 animation = &"inv"
-frame = 1
-frame_progress = 0.81033
+frame = 3
+frame_progress = 0.634164
 script = ExtResource("7_g5fwy")
-left_position = Vector2(-90, 100)
-right_position = Vector2(110, 100)
+left_position = Vector2(-145, 145)
+right_position = Vector2(110, 145)
+right_rotaion = 46.2
