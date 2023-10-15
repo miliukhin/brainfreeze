@@ -113,13 +113,11 @@ texture = ExtResource("4_1mclr")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Vagon/StaticBody2D"]
 position = Vector2(0.499996, 44.15)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_acf4q")
 
 [node name="Windowbr" type="Sprite2D" parent="Vagon"]
 visible = false
 position = Vector2(-0.3, -14)
-scale = Vector2(1, 1)
 texture = ExtResource("7_qmjaq")
 
 [node name="Window" type="Sprite2D" parent="Vagon"]
@@ -128,7 +126,6 @@ texture = ExtResource("5_bfjqn")
 
 [node name="Window3" type="Sprite2D" parent="Vagon"]
 position = Vector2(-0.700003, -6)
-scale = Vector2(1, 1)
 texture = ExtResource("5_bfjqn")
 
 [node name="Window_to_destroy" type="Area2D" parent="Vagon/Window3"]
