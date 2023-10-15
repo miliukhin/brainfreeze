@@ -130,6 +130,7 @@ position = Vector2(-1684, -40)
 [node name="SceneSwitcher" parent="." node_paths=PackedStringArray("player") instance=ExtResource("10_2mty2")]
 position = Vector2(210, -23)
 player = NodePath("../CharacterBody2D")
+next_scene = "res://Scenes/MainScene/node_2d.tscn"
 
 [node name="SceneSwitcher2" parent="." node_paths=PackedStringArray("player") instance=ExtResource("10_2mty2")]
 position = Vector2(-3381, -39)
