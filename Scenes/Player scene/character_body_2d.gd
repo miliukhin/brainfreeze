@@ -5,13 +5,15 @@ extends CharacterBody2D
 @export var SPEED = 420.0
 const JUMP_VELOCITY = -400.0
 @export var player : CharacterBody2D
+@export var broken_window : Sprite2D
+@export var window_to_desytroy : Sprite2D
 var target = Vector2.ZERO
 var have_hummer : bool
 var have_lighter: bool
 var have_sickle: bool
 var have_plastick_stick : bool
 
-var item_in_hand = "Hummer"
+var item_in_hand : String
 var item_list =["Hummer", "lighter","sickle","plastick_stick"] 
 
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -86,4 +88,17 @@ func invetory():
 
 
 
+func _on_window_to_destroy_input_event(viewport, event, shape_idx):
+	Input.set_custom_mouse_cursor(arrow)
+	if Input.is_action_just_pressed("left_click") && item_in_hand == item_list[0] && abs(abs(player.position.x) - abs(get_global_mouse_position().x)) < 200:
+		print(1223)
+		window_to_desytroy.visible = false
+		broken_window.visible = true 
+		
+func _on_window_to_destroy_mouse_entered():
+	print("meow enter")
 
+
+func _on_window_to_destroy_mouse_exited():
+	Input.set_custom_mouse_cursor(beam)
+	print("meow left")
