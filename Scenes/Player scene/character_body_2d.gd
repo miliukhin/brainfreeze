@@ -7,7 +7,7 @@ const JUMP_VELOCITY = -400.0
 @export var player : CharacterBody2D
 var target = Vector2.ZERO
 var item_in_hand = "Hummer"
-var item_list =["Hummer", "light","sickle","plastick_stick"] 
+var item_list =["Hummer", "lighter","sickle","plastick_stick"] 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
@@ -57,7 +57,6 @@ func invetory():
 	if(Input.is_action_just_pressed("inv_1")):
 		item_in_hand = item_list[0]
 		inst.frame = 0 
-		print("meo11w")
 	elif(Input.is_action_just_pressed("inv_2")):
 		item_in_hand = item_list[1]
 		inst.frame = 1
@@ -82,3 +81,6 @@ func _on_area_2d_input_event(viewport, event, shape_idx):
 func _on_area_2d_mouse_exited():
 	Input.set_custom_mouse_cursor(beam)
 	print("meow left")
+
+
+

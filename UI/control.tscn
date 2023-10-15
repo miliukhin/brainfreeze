@@ -22,17 +22,17 @@ grow_vertical = 2
 script = ExtResource("1_p01so")
 
 [node name="Circ" type="Sprite2D" parent="."]
-position = Vector2(281, 549)
+position = Vector2(590, 57.0001)
 scale = Vector2(5, 5)
 texture = ExtResource("1_fyy84")
 
 [node name="Nums" type="Sprite2D" parent="."]
-position = Vector2(280, 549)
+position = Vector2(589, 57.0001)
 scale = Vector2(5, 5)
 texture = ExtResource("2_8jlay")
 
 [node name="hummer" type="Sprite2D" parent="."]
-position = Vector2(78, 546)
+position = Vector2(387, 54)
 scale = Vector2(4, 4)
 texture = ExtResource("4_x7f47")
 
@@ -43,7 +43,7 @@ position = Vector2(0, 0.5)
 shape = SubResource("CircleShape2D_x6c38")
 
 [node name="lighter" type="Sprite2D" parent="."]
-position = Vector2(178, 542)
+position = Vector2(487, 50)
 scale = Vector2(4, 4)
 texture = ExtResource("5_sda3p")
 
@@ -54,7 +54,7 @@ position = Vector2(-0.666664, 0.666679)
 shape = SubResource("CircleShape2D_x6c38")
 
 [node name="sickle" type="Sprite2D" parent="."]
-position = Vector2(278, 547)
+position = Vector2(587, 55)
 scale = Vector2(4, 4)
 texture = ExtResource("6_xxpln")
 
@@ -65,7 +65,7 @@ position = Vector2(-1.25, -7.51019e-06)
 shape = SubResource("CircleShape2D_x6c38")
 
 [node name="plastick stick" type="Sprite2D" parent="."]
-position = Vector2(375, 547)
+position = Vector2(684, 55)
 scale = Vector2(4, 4)
 texture = ExtResource("7_ujp7w")
 

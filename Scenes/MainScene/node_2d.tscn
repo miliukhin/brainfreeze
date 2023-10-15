@@ -1,10 +1,15 @@
-[gd_scene load_steps=12 format=3 uid="uid://bdarf34dakvee"]
+[gd_scene load_steps=17 format=3 uid="uid://bdarf34dakvee"]
 
 [ext_resource type="Texture2D" uid="uid://dooq1fgmryd7o" path="res://Assets/vagon/непрозоре.png" id="1_7mmjb"]
 [ext_resource type="Texture2D" uid="uid://op0agw72bvds" path="res://idk_sprites/enviro.png" id="1_8pmgr"]
 [ext_resource type="PackedScene" uid="uid://cmqo05v70grp" path="res://Scenes/Player scene/character_body_2d.tscn" id="1_pxdgw"]
 [ext_resource type="Script" path="res://Scenes/Player scene/character_body_2d.gd" id="2_inlgh"]
+[ext_resource type="Texture2D" uid="uid://cp8ulchu156kx" path="res://Assets/vagon/chair2.png" id="3_t7hto"]
+[ext_resource type="Texture2D" uid="uid://d4df6r7e2an1y" path="res://Assets/vagon/chairmerged.png" id="4_1mclr"]
+[ext_resource type="Texture2D" uid="uid://d2tq48eog4a4g" path="res://Assets/vagon/window.png" id="5_bfjqn"]
 [ext_resource type="Texture2D" uid="uid://bwqwdyq76c5xk" path="res://Assets/pixil-frame-0(1).png" id="5_s4f68"]
+[ext_resource type="PackedScene" uid="uid://d3u31et1h8n5g" path="res://camera_2d.tscn" id="6_qd3hb"]
+[ext_resource type="PackedScene" uid="uid://cvyfpvjh5m5jl" path="res://scene_switcher.tscn" id="9_y7qx3"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_s4hv2"]
 atlas = ExtResource("1_8pmgr")
@@ -72,33 +77,69 @@ position = Vector2(198, -233)
 scale = Vector2(10, 10)
 texture = ExtResource("1_7mmjb")
 
+[node name="Chair2" type="Sprite2D" parent="Vagon"]
+position = Vector2(105.7, 25)
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("3_t7hto")
+
+[node name="Chairmerged2" type="Sprite2D" parent="Vagon"]
+position = Vector2(-37.3, 25)
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("4_1mclr")
+
+[node name="Chair3" type="Sprite2D" parent="Vagon"]
+position = Vector2(-120.9, 25)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("3_t7hto")
+flip_h = true
+
+[node name="Chairmerged" type="Sprite2D" parent="Vagon"]
+position = Vector2(34.1, 25)
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("4_1mclr")
+
 [node name="StaticBody2D" type="StaticBody2D" parent="Vagon"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Vagon/StaticBody2D"]
 position = Vector2(-6.2, 44.1)
 shape = SubResource("RectangleShape2D_acf4q")
 
+[node name="Window" type="Sprite2D" parent="Vagon"]
+position = Vector2(-72.8, -6)
+scale = Vector2(1, 1)
+texture = ExtResource("5_bfjqn")
+
+[node name="Window2" type="Sprite2D" parent="Vagon"]
+position = Vector2(71.6, -6)
+scale = Vector2(1, 1)
+texture = ExtResource("5_bfjqn")
+
+[node name="Window3" type="Sprite2D" parent="Vagon"]
+position = Vector2(-0.700001, -6)
+scale = Vector2(1, 1)
+texture = ExtResource("5_bfjqn")
+
 [node name="Pixil-frame-0(1)" type="Sprite2D" parent="."]
-position = Vector2(-164, -99)
+position = Vector2(1323, -246)
 scale = Vector2(10, 10)
 texture = ExtResource("5_s4f68")
 
 [node name="Area2D" type="Area2D" parent="Pixil-frame-0(1)"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Pixil-frame-0(1)/Area2D"]
-position = Vector2(-3.05176e-05, 2.1)
+position = Vector2(-0.799988, 2.7)
 shape = SubResource("RectangleShape2D_rtywq")
 
 [node name="CharacterBody2D" parent="." node_paths=PackedStringArray("player") instance=ExtResource("1_pxdgw")]
-position = Vector2(-725, -1)
+position = Vector2(-780, -12)
 script = ExtResource("2_inlgh")
 player = NodePath(".")
 
-[node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
-offset = Vector2(0, -270)
-zoom = Vector2(0.685, 0.685)
-limit_left = -1300
-limit_right = 1680
+[node name="Camera2D2" parent="CharacterBody2D" instance=ExtResource("6_qd3hb")]
+
+[node name="SceneSwitcher" parent="." node_paths=PackedStringArray("player") instance=ExtResource("9_y7qx3")]
+player = NodePath("../CharacterBody2D")
+next_scene = "res://Scenes/test.tscn"
 
 [connection signal="input_event" from="Pixil-frame-0(1)/Area2D" to="CharacterBody2D" method="_on_area_2d_input_event"]
 [connection signal="mouse_entered" from="Pixil-frame-0(1)/Area2D" to="CharacterBody2D" method="_on_area_2d_mouse_entered"]

@@ -1,20 +1,79 @@
-[gd_scene load_steps=7 format=3 uid="uid://b36rvndfhm63w"]
+[gd_scene load_steps=17 format=3 uid="uid://b36rvndfhm63w"]
 
-[ext_resource type="Texture2D" uid="uid://cctx2vj6vumq8" path="res://Assets/vagon/поїзд думер.png" id="1_vvr1v"]
+[ext_resource type="Texture2D" uid="uid://op0agw72bvds" path="res://idk_sprites/enviro.png" id="1_88llx"]
+[ext_resource type="Texture2D" uid="uid://cpt5ehasp81la" path="res://Assets/vagon/vagon_2.png" id="1_badu2"]
 [ext_resource type="Texture2D" uid="uid://cp8ulchu156kx" path="res://Assets/vagon/chair2.png" id="2_alwo3"]
 [ext_resource type="Texture2D" uid="uid://d4df6r7e2an1y" path="res://Assets/vagon/chairmerged.png" id="3_86ntc"]
+[ext_resource type="Texture2D" uid="uid://n7t7wd2dei1r" path="res://Assets/vagon/Sprite-001crowd54.png" id="4_jka4x"]
+[ext_resource type="Texture2D" uid="uid://d2tq48eog4a4g" path="res://Assets/vagon/window.png" id="5_euow5"]
+[ext_resource type="Texture2D" uid="uid://b3axqu15w4ra" path="res://Assets/vagon/Sprite-00154.png" id="5_j3sv7"]
 [ext_resource type="PackedScene" uid="uid://cmqo05v70grp" path="res://Scenes/Player scene/character_body_2d.tscn" id="6_m04tj"]
 [ext_resource type="Script" path="res://Scenes/Player scene/character_body_2d.gd" id="7_mo5m1"]
+[ext_resource type="PackedScene" uid="uid://d3u31et1h8n5g" path="res://camera_2d.tscn" id="8_6siur"]
+[ext_resource type="PackedScene" uid="uid://cvyfpvjh5m5jl" path="res://scene_switcher.tscn" id="11_dy0je"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s4hv2"]
+atlas = ExtResource("1_88llx")
+region = Rect2(0, 0, 100, 70)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dqo50"]
+atlas = ExtResource("1_88llx")
+region = Rect2(100, 0, 100, 70)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dds6a"]
+atlas = ExtResource("1_88llx")
+region = Rect2(200, 0, 100, 70)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_81wf4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s4hv2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dqo50")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dds6a")
+}],
+"loop": true,
+"name": &"view",
+"speed": 5.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uphoo"]
 size = Vector2(310.8, 7.3)
 
 [node name="Test" type="Node2D"]
 
+[node name="AnimatedSprite2D3" type="AnimatedSprite2D" parent="."]
+position = Vector2(965, -256)
+scale = Vector2(9, 9)
+sprite_frames = SubResource("SpriteFrames_81wf4")
+animation = &"view"
+autoplay = "view"
+frame_progress = 0.106889
+
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="."]
+position = Vector2(192, -262)
+scale = Vector2(9, 9)
+sprite_frames = SubResource("SpriteFrames_81wf4")
+animation = &"view"
+autoplay = "view"
+frame_progress = 0.393985
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-632, -251)
+scale = Vector2(9, 9)
+sprite_frames = SubResource("SpriteFrames_81wf4")
+animation = &"view"
+autoplay = "view"
+frame_progress = 0.849104
+
 [node name="Vagon2" type="Sprite2D" parent="."]
 position = Vector2(158, -211)
 scale = Vector2(10.5563, 8.67778)
-texture = ExtResource("1_vvr1v")
+texture = ExtResource("1_badu2")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Vagon2"]
 
@@ -43,19 +102,44 @@ scale = Vector2(0.75, 0.75)
 texture = ExtResource("2_alwo3")
 flip_h = true
 
+[node name="Window" type="Sprite2D" parent="Vagon2"]
+position = Vector2(-73.0871, -6.01024)
+scale = Vector2(1, 1)
+texture = ExtResource("5_euow5")
+
+[node name="Window2" type="Sprite2D" parent="Vagon2"]
+position = Vector2(71.3129, -6.01024)
+scale = Vector2(1, 1)
+texture = ExtResource("5_euow5")
+
+[node name="Window3" type="Sprite2D" parent="Vagon2"]
+position = Vector2(-0.987122, -6.01024)
+scale = Vector2(1, 1)
+texture = ExtResource("5_euow5")
+
 [node name="Sprite-001Crowd54" type="Sprite2D" parent="Vagon2"]
 position = Vector2(34.9556, 13.3675)
 scale = Vector2(0.854154, 1.03905)
+texture = ExtResource("4_jka4x")
 
 [node name="Sprite-00154" type="Sprite2D" parent="Vagon2"]
 position = Vector2(-37.987, 20.0512)
 scale = Vector2(0.777143, 0.777143)
+texture = ExtResource("5_j3sv7")
 
 [node name="CharacterBody2D" parent="." instance=ExtResource("6_m04tj")]
-position = Vector2(-944, -41)
+position = Vector2(-1224, -52)
 collision_layer = 3
 script = ExtResource("7_mo5m1")
 
-[node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
-offset = Vector2(0, -280)
-zoom = Vector2(0.7, 0.7)
+[node name="Camera2D" parent="CharacterBody2D" instance=ExtResource("8_6siur")]
+
+[node name="SceneSwitcher" parent="." node_paths=PackedStringArray("player") instance=ExtResource("11_dy0je")]
+position = Vector2(23, -56)
+player = NodePath("../CharacterBody2D")
+next_scene = "res://Scenes/level3.tscn"
+
+[node name="SceneSwitcher2" parent="." node_paths=PackedStringArray("player") instance=ExtResource("11_dy0je")]
+position = Vector2(-2853, 0)
+player = NodePath("../CharacterBody2D")
+next_scene = "res://Scenes/MainScene/node_2d.tscn"
