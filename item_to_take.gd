@@ -21,6 +21,7 @@ func _on_input_event(viewport, event, shape_idx):
 		if get_parent().name == "Hummer" && get_parent().visible == true:
 			get_parent().visible = false
 			player.have_hummer = true
+
 func _on_mouse_entered():
 	if Input.is_action_pressed("left_click"):
 		print("meow")
@@ -29,3 +30,7 @@ func _on_mouse_entered():
 func _on_mouse_exited():
 	Input.set_custom_mouse_cursor(beam)
 	print("meow left")
+
+
+
+			

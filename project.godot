@@ -21,6 +21,7 @@ AudioStreamPlayer2d="*res://Scenes/music scene/audio_stream_player_2d.tscn"
 
 [display]
 
+window/stretch/mode="canvas_items"
 mouse_cursor/custom_image="res://Assets/cursor/cursor2.png"
 
 [dotnet]

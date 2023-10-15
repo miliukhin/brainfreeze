@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://dppcydhbmia7k"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -578.0
+offset_top = -330.0
+offset_right = 583.0
+offset_bottom = 325.0
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="."]
+offset_left = -37.0
+offset_top = -14.0
+offset_right = 401.0
+offset_bottom = 173.0
+text = "THE END"

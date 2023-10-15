@@ -13,6 +13,8 @@ var have_lighter: bool
 var have_sickle: bool
 var have_plastick_stick : bool
 
+@export_file var next_scene
+
 var item_in_hand : String
 var item_list =["Hummer", "lighter","sickle","plastick_stick"] 
 
@@ -86,14 +88,14 @@ func invetory():
 		inst.visible = true
 	
 
-
-
 func _on_window_to_destroy_input_event(viewport, event, shape_idx):
 	Input.set_custom_mouse_cursor(arrow)
 	if Input.is_action_just_pressed("left_click") && item_in_hand == item_list[0] && abs(abs(player.position.x) - abs(get_global_mouse_position().x)) < 200:
 		print(1223)
 		window_to_desytroy.visible = false
-		broken_window.visible = true 
+		broken_window.visible = true
+		inst.position.y = get_global_mouse_position().y
+		inst.position.x = get_global_mouse_position().x 
 		
 func _on_window_to_destroy_mouse_entered():
 	print("meow enter")
@@ -102,3 +104,9 @@ func _on_window_to_destroy_mouse_entered():
 func _on_window_to_destroy_mouse_exited():
 	Input.set_custom_mouse_cursor(beam)
 	print("meow left")
+
+
+func _on_area_2d_input_event(viewport, event, shape_idx):
+	if Input.is_action_just_pressed("left_click") && abs(abs(player.position.x) - abs(get_global_mouse_position().x)) < 200:
+		if get_parent().name != "Hummer" && get_parent().visible == true:
+			get_tree().change_scene_to_file(next_scene)
