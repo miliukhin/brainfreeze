@@ -1,7 +1,12 @@
-[gd_scene load_steps=2 format=3 uid="uid://dbvldls4m30wp"]
+[gd_scene load_steps=3 format=3 uid="uid://dbvldls4m30wp"]
 
 [ext_resource type="AudioStream" uid="uid://g3argpug0knf" path="res://music/out.mp3" id="1_yrfcr"]
+[ext_resource type="AudioStream" uid="uid://de1sflvosnkex" path="res://sounds/rain.mp3" id="2_r35k5"]
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D"]
 stream = ExtResource("1_yrfcr")
+autoplay = true
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_r35k5")
 autoplay = true
