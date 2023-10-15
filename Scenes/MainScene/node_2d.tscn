@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://bdarf34dakvee"]
+[gd_scene load_steps=19 format=3 uid="uid://bdarf34dakvee"]
 
 [ext_resource type="Texture2D" uid="uid://dooq1fgmryd7o" path="res://Assets/vagon/непрозоре.png" id="1_7mmjb"]
 [ext_resource type="Texture2D" uid="uid://op0agw72bvds" path="res://idk_sprites/enviro.png" id="1_8pmgr"]
@@ -43,6 +43,9 @@ animations = [{
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_acf4q"]
 size = Vector2(297.4, 6.1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yud1p"]
+size = Vector2(59.6, 24.3)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_n82qq"]
 size = Vector2(59, 25.6)
@@ -120,6 +123,14 @@ visible = false
 position = Vector2(-0.3, -14)
 texture = ExtResource("7_qmjaq")
 
+[node name="Area2D" type="Area2D" parent="Vagon/Windowbr"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Vagon/Windowbr/Area2D"]
+position = Vector2(0.200005, 8.15)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_yud1p")
+debug_color = Color(0.976471, 0, 0.568627, 0.419608)
+
 [node name="Window" type="Sprite2D" parent="Vagon"]
 position = Vector2(-72.8, -6)
 texture = ExtResource("5_bfjqn")
@@ -143,12 +154,14 @@ position = Vector2(1323, -246)
 scale = Vector2(10, 10)
 texture = ExtResource("5_s4f68")
 
-[node name="item_to_take" parent="Pixil-frame-0(1)" instance=ExtResource("7_qoewp")]
+[node name="item_to_take" parent="Pixil-frame-0(1)" node_paths=PackedStringArray("player") instance=ExtResource("7_qoewp")]
+player = NodePath("../../CharacterBody2D")
 
 [node name="CharacterBody2D" parent="." node_paths=PackedStringArray("broken_window", "window_to_desytroy") instance=ExtResource("1_pxdgw")]
 position = Vector2(-1052, 14)
 broken_window = NodePath("../Vagon/Windowbr")
 window_to_desytroy = NodePath("../Vagon/Window3")
+next_scene = "res://the_end.tscn"
 
 [node name="SceneSwitcher2" parent="." node_paths=PackedStringArray("player") instance=ExtResource("9_y7qx3")]
 position = Vector2(-2734, 0)
@@ -160,6 +173,7 @@ position = Vector2(3, 0)
 player = NodePath("../CharacterBody2D")
 next_scene = "res://Scenes/test.tscn"
 
+[connection signal="input_event" from="Vagon/Windowbr/Area2D" to="CharacterBody2D" method="_on_area_2d_input_event"]
 [connection signal="input_event" from="Vagon/Window3/Window_to_destroy" to="CharacterBody2D" method="_on_window_to_destroy_input_event"]
 [connection signal="mouse_entered" from="Vagon/Window3/Window_to_destroy" to="CharacterBody2D" method="_on_window_to_destroy_mouse_entered"]
 [connection signal="mouse_exited" from="Vagon/Window3/Window_to_destroy" to="CharacterBody2D" method="_on_window_to_destroy_mouse_exited"]
