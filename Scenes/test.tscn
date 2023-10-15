@@ -77,7 +77,6 @@ texture = ExtResource("1_badu2")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Vagon2/StaticBody2D"]
 position = Vector2(-0.498653, 43.45)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_uphoo")
 
 [node name="Chair2" type="Sprite2D" parent="Vagon2"]
@@ -103,27 +102,24 @@ flip_h = true
 
 [node name="Window" type="Sprite2D" parent="Vagon2"]
 position = Vector2(-73.0871, -6.01024)
-scale = Vector2(1, 1)
 texture = ExtResource("5_euow5")
 
 [node name="Window2" type="Sprite2D" parent="Vagon2"]
 position = Vector2(71.3129, -6.01024)
-scale = Vector2(1, 1)
 texture = ExtResource("5_euow5")
 
 [node name="Window3" type="Sprite2D" parent="Vagon2"]
 position = Vector2(-0.987122, -6.01024)
-scale = Vector2(1, 1)
 texture = ExtResource("5_euow5")
 
 [node name="Sprite-001Crowd54" type="Sprite2D" parent="Vagon2"]
-position = Vector2(34.9556, 13.3675)
-scale = Vector2(0.854154, 1.03905)
+position = Vector2(52.5442, 2.6695)
+scale = Vector2(1.1473, 1.39565)
 texture = ExtResource("4_jka4x")
 
 [node name="Sprite-00154" type="Sprite2D" parent="Vagon2"]
-position = Vector2(-37.987, 20.0512)
-scale = Vector2(0.777143, 0.777143)
+position = Vector2(8.13877, 12.8)
+scale = Vector2(1.0293, 1.0293)
 texture = ExtResource("5_j3sv7")
 
 [node name="CharacterBody2D" parent="." instance=ExtResource("6_m04tj")]

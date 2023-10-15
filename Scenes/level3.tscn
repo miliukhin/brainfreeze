@@ -96,27 +96,24 @@ flip_h = true
 
 [node name="Window" type="Sprite2D" parent="Vagon3"]
 position = Vector2(-73.1617, -5.99813)
-scale = Vector2(1, 1)
 texture = ExtResource("5_6ft3o")
 
 [node name="Window2" type="Sprite2D" parent="Vagon3"]
 position = Vector2(71.2383, -5.99813)
-scale = Vector2(1, 1)
 texture = ExtResource("5_6ft3o")
 
 [node name="Window3" type="Sprite2D" parent="Vagon3"]
 position = Vector2(-1.06174, -5.99813)
-scale = Vector2(1, 1)
 texture = ExtResource("5_6ft3o")
 
 [node name="Sprite-001Crowd54" type="Sprite2D" parent="Vagon3"]
-position = Vector2(79.343, 27.0296)
-scale = Vector2(0.47201, 0.541177)
+position = Vector2(80.4678, 12.2)
+scale = Vector2(0.982159, 1.12608)
 texture = ExtResource("4_prp40")
 
 [node name="Sprite-00154" type="Sprite2D" parent="Vagon3"]
-position = Vector2(-35.6613, 21.2961)
-scale = Vector2(0.743469, 0.789109)
+position = Vector2(-21.0127, 16.2575)
+scale = Vector2(0.879104, 0.93307)
 texture = ExtResource("5_tiotq")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]

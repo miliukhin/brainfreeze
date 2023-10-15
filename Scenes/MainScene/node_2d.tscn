@@ -113,17 +113,14 @@ shape = SubResource("RectangleShape2D_acf4q")
 
 [node name="Window" type="Sprite2D" parent="Vagon"]
 position = Vector2(-72.8, -6)
-scale = Vector2(1, 1)
 texture = ExtResource("5_bfjqn")
 
 [node name="Window2" type="Sprite2D" parent="Vagon"]
 position = Vector2(71.6, -6)
-scale = Vector2(1, 1)
 texture = ExtResource("5_bfjqn")
 
 [node name="Window3" type="Sprite2D" parent="Vagon"]
 position = Vector2(-0.700001, -6)
-scale = Vector2(1, 1)
 texture = ExtResource("5_bfjqn")
 
 [node name="Pixil-frame-0(1)" type="Sprite2D" parent="."]
