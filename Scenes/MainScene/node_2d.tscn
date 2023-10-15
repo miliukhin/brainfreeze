@@ -1,15 +1,15 @@
-[gd_scene load_steps=17 format=3 uid="uid://bdarf34dakvee"]
+[gd_scene load_steps=16 format=3 uid="uid://bdarf34dakvee"]
 
 [ext_resource type="Texture2D" uid="uid://dooq1fgmryd7o" path="res://Assets/vagon/непрозоре.png" id="1_7mmjb"]
 [ext_resource type="Texture2D" uid="uid://op0agw72bvds" path="res://idk_sprites/enviro.png" id="1_8pmgr"]
 [ext_resource type="PackedScene" uid="uid://cmqo05v70grp" path="res://Scenes/Player scene/character_body_2d.tscn" id="1_pxdgw"]
-[ext_resource type="Script" path="res://Scenes/Player scene/character_body_2d.gd" id="2_inlgh"]
 [ext_resource type="Texture2D" uid="uid://cp8ulchu156kx" path="res://Assets/vagon/chair2.png" id="3_t7hto"]
 [ext_resource type="Texture2D" uid="uid://d4df6r7e2an1y" path="res://Assets/vagon/chairmerged.png" id="4_1mclr"]
 [ext_resource type="Texture2D" uid="uid://d2tq48eog4a4g" path="res://Assets/vagon/window.png" id="5_bfjqn"]
 [ext_resource type="Texture2D" uid="uid://bwqwdyq76c5xk" path="res://Assets/pixil-frame-0(1).png" id="5_s4f68"]
-[ext_resource type="PackedScene" uid="uid://d3u31et1h8n5g" path="res://camera_2d.tscn" id="6_qd3hb"]
+[ext_resource type="PackedScene" uid="uid://duvg2aj4wqkgb" path="res://item_to_take.tscn" id="7_qoewp"]
 [ext_resource type="PackedScene" uid="uid://cvyfpvjh5m5jl" path="res://scene_switcher.tscn" id="9_y7qx3"]
+[ext_resource type="Texture2D" uid="uid://c178m6ua4aeav" path="res://Assets/inventory/hummer.png" id="12_m0deb"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_s4hv2"]
 atlas = ExtResource("1_8pmgr")
@@ -43,9 +43,6 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_acf4q"]
 size = Vector2(310.8, 6)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_rtywq"]
-size = Vector2(16, 11.85)
-
 [node name="Node2D" type="Node2D"]
 
 [node name="AnimatedSprite2D3" type="AnimatedSprite2D" parent="."]
@@ -76,6 +73,16 @@ frame_progress = 0.235655
 position = Vector2(198, -233)
 scale = Vector2(10, 10)
 texture = ExtResource("1_7mmjb")
+
+[node name="Hummer" type="Sprite2D" parent="Vagon"]
+position = Vector2(-46.8, 23.1)
+rotation = 2.68781
+texture = ExtResource("12_m0deb")
+
+[node name="item_to_take" parent="Vagon/Hummer" node_paths=PackedStringArray("player") instance=ExtResource("7_qoewp")]
+position = Vector2(0.1, -4.4)
+scale = Vector2(1, 1.21576)
+player = NodePath("../../../CharacterBody2D")
 
 [node name="Chair2" type="Sprite2D" parent="Vagon"]
 position = Vector2(105.7, 25)
@@ -124,23 +131,17 @@ position = Vector2(1323, -246)
 scale = Vector2(10, 10)
 texture = ExtResource("5_s4f68")
 
-[node name="Area2D" type="Area2D" parent="Pixil-frame-0(1)"]
+[node name="item_to_take" parent="Pixil-frame-0(1)" instance=ExtResource("7_qoewp")]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Pixil-frame-0(1)/Area2D"]
-position = Vector2(-0.799988, 2.7)
-shape = SubResource("RectangleShape2D_rtywq")
+[node name="CharacterBody2D" parent="." instance=ExtResource("1_pxdgw")]
+position = Vector2(-1052, 14)
 
-[node name="CharacterBody2D" parent="." node_paths=PackedStringArray("player") instance=ExtResource("1_pxdgw")]
-position = Vector2(-780, -12)
-script = ExtResource("2_inlgh")
-player = NodePath(".")
-
-[node name="Camera2D2" parent="CharacterBody2D" instance=ExtResource("6_qd3hb")]
+[node name="SceneSwitcher2" parent="." node_paths=PackedStringArray("player") instance=ExtResource("9_y7qx3")]
+position = Vector2(-2734, 0)
+player = NodePath("../CharacterBody2D")
+next_scene = "res://Scenes/level3.tscn"
 
 [node name="SceneSwitcher" parent="." node_paths=PackedStringArray("player") instance=ExtResource("9_y7qx3")]
+position = Vector2(3, 0)
 player = NodePath("../CharacterBody2D")
 next_scene = "res://Scenes/test.tscn"
-
-[connection signal="input_event" from="Pixil-frame-0(1)/Area2D" to="CharacterBody2D" method="_on_area_2d_input_event"]
-[connection signal="mouse_entered" from="Pixil-frame-0(1)/Area2D" to="CharacterBody2D" method="_on_area_2d_mouse_entered"]
-[connection signal="mouse_exited" from="Pixil-frame-0(1)/Area2D" to="CharacterBody2D" method="_on_area_2d_mouse_exited"]

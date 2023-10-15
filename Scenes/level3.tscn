@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://rsyfy2fq3d0o"]
+[gd_scene load_steps=15 format=3 uid="uid://rsyfy2fq3d0o"]
 
 [ext_resource type="Texture2D" uid="uid://op0agw72bvds" path="res://idk_sprites/enviro.png" id="1_c170f"]
 [ext_resource type="Texture2D" uid="uid://cn2eu3jidydli" path="res://Assets/vagon/vagon3.png" id="1_eyftq"]
@@ -8,7 +8,6 @@
 [ext_resource type="Texture2D" uid="uid://d2tq48eog4a4g" path="res://Assets/vagon/window.png" id="5_6ft3o"]
 [ext_resource type="Texture2D" uid="uid://b3axqu15w4ra" path="res://Assets/vagon/Sprite-00154.png" id="5_tiotq"]
 [ext_resource type="PackedScene" uid="uid://cmqo05v70grp" path="res://Scenes/Player scene/character_body_2d.tscn" id="6_h2dmg"]
-[ext_resource type="Script" path="res://Scenes/Player scene/character_body_2d.gd" id="7_rvhba"]
 [ext_resource type="PackedScene" uid="uid://cvyfpvjh5m5jl" path="res://scene_switcher.tscn" id="10_2mty2"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_s4hv2"]
@@ -41,12 +40,12 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g3yc4"]
-size = Vector2(318.39, 7.3)
+size = Vector2(365.374, 5.49379)
 
 [node name="Node2D" type="Node2D"]
 
 [node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="."]
-position = Vector2(92, -261)
+position = Vector2(62, -261)
 scale = Vector2(9, 9)
 sprite_frames = SubResource("SpriteFrames_05sjp")
 animation = &"view"
@@ -54,7 +53,7 @@ autoplay = "view"
 frame_progress = 0.38832
 
 [node name="AnimatedSprite2D4" type="AnimatedSprite2D" parent="."]
-position = Vector2(-629, -250)
+position = Vector2(-881, -267)
 scale = Vector2(9, 9)
 sprite_frames = SubResource("SpriteFrames_05sjp")
 animation = &"view"
@@ -70,8 +69,8 @@ autoplay = "view"
 frame_progress = 0.416524
 
 [node name="Vagon3" type="Sprite2D" parent="."]
-position = Vector2(94.4999, -227)
-scale = Vector2(11.0344, 8.54618)
+position = Vector2(10, -234)
+scale = Vector2(12.912, 10)
 texture = ExtResource("1_eyftq")
 
 [node name="Chair2" type="Sprite2D" parent="Vagon3"]
@@ -125,23 +124,17 @@ position = Vector2(158, -211)
 scale = Vector2(10.5563, 8.67778)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(-7.6258, 43.45)
+position = Vector2(-14.92, 47.2659)
 shape = SubResource("RectangleShape2D_g3yc4")
 
 [node name="CharacterBody2D" parent="." instance=ExtResource("6_h2dmg")]
-position = Vector2(-1340, -38)
-collision_layer = 3
-script = ExtResource("7_rvhba")
-
-[node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
-offset = Vector2(0, -280)
-zoom = Vector2(0.7, 0.7)
+position = Vector2(-1684, -40)
 
 [node name="SceneSwitcher" parent="." node_paths=PackedStringArray("player") instance=ExtResource("10_2mty2")]
-position = Vector2(29, -5)
+position = Vector2(210, -23)
 player = NodePath("../CharacterBody2D")
 
 [node name="SceneSwitcher2" parent="." node_paths=PackedStringArray("player") instance=ExtResource("10_2mty2")]
-position = Vector2(-3003, -61)
+position = Vector2(-3381, -39)
 player = NodePath("../CharacterBody2D")
 next_scene = "res://Scenes/test.tscn"

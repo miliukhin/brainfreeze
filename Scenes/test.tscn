@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://b36rvndfhm63w"]
+[gd_scene load_steps=15 format=3 uid="uid://b36rvndfhm63w"]
 
 [ext_resource type="Texture2D" uid="uid://op0agw72bvds" path="res://idk_sprites/enviro.png" id="1_88llx"]
 [ext_resource type="Texture2D" uid="uid://cpt5ehasp81la" path="res://Assets/vagon/vagon_2.png" id="1_badu2"]
@@ -8,8 +8,6 @@
 [ext_resource type="Texture2D" uid="uid://d2tq48eog4a4g" path="res://Assets/vagon/window.png" id="5_euow5"]
 [ext_resource type="Texture2D" uid="uid://b3axqu15w4ra" path="res://Assets/vagon/Sprite-00154.png" id="5_j3sv7"]
 [ext_resource type="PackedScene" uid="uid://cmqo05v70grp" path="res://Scenes/Player scene/character_body_2d.tscn" id="6_m04tj"]
-[ext_resource type="Script" path="res://Scenes/Player scene/character_body_2d.gd" id="7_mo5m1"]
-[ext_resource type="PackedScene" uid="uid://d3u31et1h8n5g" path="res://camera_2d.tscn" id="8_6siur"]
 [ext_resource type="PackedScene" uid="uid://cvyfpvjh5m5jl" path="res://scene_switcher.tscn" id="11_dy0je"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_s4hv2"]
@@ -42,7 +40,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uphoo"]
-size = Vector2(310.8, 7.3)
+size = Vector2(299.397, 7.3)
 
 [node name="Test" type="Node2D"]
 
@@ -72,13 +70,14 @@ frame_progress = 0.849104
 
 [node name="Vagon2" type="Sprite2D" parent="."]
 position = Vector2(158, -211)
-scale = Vector2(10.5563, 8.67778)
+scale = Vector2(12.164, 10)
 texture = ExtResource("1_badu2")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Vagon2"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Vagon2/StaticBody2D"]
-position = Vector2(-6.2, 43.45)
+position = Vector2(-0.498653, 43.45)
+scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_uphoo")
 
 [node name="Chair2" type="Sprite2D" parent="Vagon2"]
@@ -128,18 +127,14 @@ scale = Vector2(0.777143, 0.777143)
 texture = ExtResource("5_j3sv7")
 
 [node name="CharacterBody2D" parent="." instance=ExtResource("6_m04tj")]
-position = Vector2(-1224, -52)
-collision_layer = 3
-script = ExtResource("7_mo5m1")
-
-[node name="Camera2D" parent="CharacterBody2D" instance=ExtResource("8_6siur")]
+position = Vector2(-1416, 24)
 
 [node name="SceneSwitcher" parent="." node_paths=PackedStringArray("player") instance=ExtResource("11_dy0je")]
-position = Vector2(23, -56)
+position = Vector2(252, -16)
 player = NodePath("../CharacterBody2D")
 next_scene = "res://Scenes/level3.tscn"
 
 [node name="SceneSwitcher2" parent="." node_paths=PackedStringArray("player") instance=ExtResource("11_dy0je")]
-position = Vector2(-2853, 0)
+position = Vector2(-3095, -20)
 player = NodePath("../CharacterBody2D")
 next_scene = "res://Scenes/MainScene/node_2d.tscn"

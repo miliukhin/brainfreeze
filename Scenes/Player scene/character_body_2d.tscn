@@ -1,12 +1,14 @@
-[gd_scene load_steps=13 format=3 uid="uid://cmqo05v70grp"]
+[gd_scene load_steps=15 format=3 uid="uid://cmqo05v70grp"]
 
 [ext_resource type="Texture2D" uid="uid://b3nq80rio1g8t" path="res://Assets/babkaw1.png" id="1_fruf2"]
 [ext_resource type="Texture2D" uid="uid://dlcpcaul32gq7" path="res://Assets/babka.png" id="1_sq1n3"]
+[ext_resource type="Script" path="res://Scenes/Player scene/character_body_2d.gd" id="1_unfql"]
 [ext_resource type="Texture2D" uid="uid://c178m6ua4aeav" path="res://Assets/inventory/hummer.png" id="3_mk0hu"]
 [ext_resource type="Texture2D" uid="uid://cpkkuxmygdsoh" path="res://Assets/inventory/lighter.png" id="4_l7myh"]
 [ext_resource type="Texture2D" uid="uid://dpvn8yujryhjj" path="res://Assets/inventory/sickle.png" id="5_pl5d1"]
 [ext_resource type="Texture2D" uid="uid://q0qlr6ylhdng" path="res://Assets/inventory/plastick strick.png" id="6_6bo7o"]
 [ext_resource type="Script" path="res://Scenes/Player scene/Inst.gd" id="7_g5fwy"]
+[ext_resource type="PackedScene" uid="uid://d3u31et1h8n5g" path="res://camera_2d.tscn" id="9_bgw05"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2vvv7"]
 atlas = ExtResource("1_sq1n3")
@@ -61,7 +63,9 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="CharacterBody2D" type="CharacterBody2D"]
+[node name="CharacterBody2D" type="CharacterBody2D" node_paths=PackedStringArray("player")]
+script = ExtResource("1_unfql")
+player = NodePath(".")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(2, -5)
@@ -86,3 +90,5 @@ script = ExtResource("7_g5fwy")
 left_position = Vector2(-145, 145)
 right_position = Vector2(110, 145)
 right_rotaion = 46.2
+
+[node name="Camera2D" parent="." instance=ExtResource("9_bgw05")]
