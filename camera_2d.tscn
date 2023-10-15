@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://d3u31et1h8n5g"]
+
+[ext_resource type="PackedScene" uid="uid://cgdjdj8xpxy8a" path="res://UI/control.tscn" id="1_micpa"]
+
+[node name="Camera2D" type="Camera2D"]
+offset = Vector2(0, -280)
+zoom = Vector2(0.7, 0.7)
+
+[node name="Control" parent="." instance=ExtResource("1_micpa")]
+offset_left = -1116.0
+offset_top = 19.0
+offset_right = -1116.0
+offset_bottom = 19.0

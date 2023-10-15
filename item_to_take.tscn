@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://duvg2aj4wqkgb"]
+
+[ext_resource type="Script" path="res://item_to_take.gd" id="1_6e0nl"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rtywq"]
+size = Vector2(16, 11.85)
+
+[node name="item_to_take" type="Area2D"]
+script = ExtResource("1_6e0nl")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.799988, 2.7)
+shape = SubResource("RectangleShape2D_rtywq")
+
+[connection signal="input_event" from="." to="." method="_on_input_event"]
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

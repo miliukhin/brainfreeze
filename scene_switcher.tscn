@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://cvyfpvjh5m5jl"]
+
+[ext_resource type="Script" path="res://scene_switcher.gd" id="1_2wyw2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_oahpk"]
+size = Vector2(228, 724)
+
+[node name="SceneSwitcher" type="Area2D"]
+script = ExtResource("1_2wyw2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1578, -177)
+shape = SubResource("RectangleShape2D_oahpk")
+
+[connection signal="input_event" from="." to="." method="_on_input_event"]
